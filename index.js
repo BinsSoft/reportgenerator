@@ -20,6 +20,12 @@ var storage = multer.diskStorage({ //multers disk storage settings
 var upload = multer({ //multer settings
     storage: storage
 }).single('file');
+app.get('/api/home', (req, res) => {
+    res.json({
+        status: 1,
+        message: 'app run successfully'
+    })
+});
 app.post('/api/uploadfile', (req, res) => {
     upload(req, res, function(err) {
         if (err) {
